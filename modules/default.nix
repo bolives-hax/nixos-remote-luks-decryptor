@@ -141,6 +141,7 @@
 
       kernelModules = [ 
         "e1000" # TODO don't hardcode (qemu)
+        "e1000e" # leaseweb
 
         # system-x / iceland dell
         "tg3" # TODO what is this even
@@ -204,8 +205,11 @@
           # bind sshd only to wg's ip to not expose it
           # (TODO also configure ip/nftables to not respond to pings
           # in stealth mode)
+          #extraConfig = lib.strings.optionalString wireguard.enable ''
+          #  ListenAddress ${wireguard.tunnel.local.ip}
+          #'';
           extraConfig = lib.strings.optionalString wireguard.enable ''
-            ListenAddress ${wireguard.tunnel.local.ip}
+            ListenAddress 0.0.0.0
           '';
         };
       };
