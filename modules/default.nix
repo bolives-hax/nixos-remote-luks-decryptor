@@ -106,7 +106,7 @@
       ''ip=${address}::${lib.strings.optionalString (gateway != null) gateway}:${subnetMask}::${interface}''
       # TODO remove
       "boot.trace"
-      "boot.debug1"
+      #"boot.debug1" # not needed anymore
     ];
 
     # TODO do we need to explicitly
