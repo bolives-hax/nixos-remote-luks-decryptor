@@ -197,6 +197,8 @@
 
         ssh = {
           enable = true;
+          port = 2222; # prevent annying key mismatches
+          # ( or use wg)
           inherit (ssh) authorizedKeys hostKeys;
 
           # erros if hostKeys isn't provided as
